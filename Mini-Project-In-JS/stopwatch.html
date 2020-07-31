@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mini project stopwatch</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body onload="countdown();"> 
+
+  <center>
+      <h1>Mini Project Stopwatch</h1>
+      <h2>JavaScript</h2>
+    <div> 
+        <p id="t" style="font-weight: bold;">Time Left :: </p>
+        <input id="minutes" type="text" style="width: 40px; 
+             border: none; font-size: 25px; background: rgb(89, 194, 124); border-radius: 4px; 
+            font-weight: bold; color: black;"><font size="5">m</font>
+            <font size="5">: </font> 
+        <input id="seconds" type="text" style="width: 40px; background: rgb(89, 194, 124);
+                        border: none; font-size: 25px; border-radius: 4px; 
+                        font-weight: bold; color: black;"><font size="5">s</font> 
+         <h2 id="ww">.</h2>
+
+         
+
+    </div> 
+
+    <h3 id="lu">LetsUpgrade</h3>
+</center>
+
+<script> 
+  var mins = prompt('Please Type Digits... ','60'); 
+ var secs = mins *1; 
+
+function countdown() { 
+        setTimeout('Decrement()', 60); 
+    } 
+function Decrement() { 
+        if (document.getElementById) { 
+            minutes = document.getElementById("minutes"); 
+            seconds = document.getElementById("seconds"); 
+            if (seconds < 59) { 
+                seconds.value = secs; 
+            } 
+            else { 
+                minutes.value = getminutes(); 
+                seconds.value = getseconds(); 
+            } 
+            if (mins < 1) { 
+                minutes.style.color = "red"; 
+                seconds.style.color = "red"; 
+            }          
+            if (mins < 0) { 
+                document.getElementById("ww").innerHTML = "Time Up";
+                alert('time up');
+                minutes.value = 0; 
+                seconds.value = 0; 
+            }           
+            else { 
+                secs--; 
+                setTimeout('Decrement()', 1000); 
+            } 
+        } 
+    } 
+  function getminutes() { 
+             mins = Math.floor(secs / 60); 
+        return mins; 
+    } 
+    function getseconds() {       
+        return secs - Math.round(mins * 60); 
+    } 
+  
+</script>
+
+
+</body>
+</html>
